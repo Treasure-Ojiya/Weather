@@ -1,0 +1,174 @@
+<main
+  class="app-container min-h-screen w-full bg-gradient-to-br from-blue-400 via-indigo-400 to-blue-300 flex justify-center items-start px-6 py-10"
+>
+  <div class="w-full max-w-4xl">
+    <!-- Title -->
+    <h1
+      class="text-4xl font-extrabold text-white mb-8 drop-shadow-lg text-center"
+    >
+      Yue Weather
+    </h1>
+
+    <!-- Search -->
+    <div class="flex mb-10 shadow-lg rounded-lg overflow-hidden">
+      <input
+        type="text"
+        placeholder="Enter city..."
+        id="cityInput"
+        class="flex-grow border-none px-4 py-3 focus:outline-none bg-white/30 text-white placeholder-white/70 backdrop-blur-md"
+      />
+      <button
+        id="searchBtn"
+        class="bg-blue-900 text-white px-6 py-3 font-semibold hover:bg-blue-800 transition-colors"
+      >
+        Search
+      </button>
+    </div>
+
+    <!-- Current Weather -->
+    <div
+      id="weatherBox"
+      class="mb-10 p-6 rounded-2xl bg-white/20 backdrop-blur-md shadow-xl"
+    >
+      <div class="flex items-center gap-4 mb-6">
+        <div
+          class="h-14 w-14 flex items-center justify-center rounded-xl bg-blue-900 shadow-md"
+        >
+          <img src="assets/icons/city-block.svg" alt="" class="h-7 w-7" />
+        </div>
+        <h2 id="cityName" class="text-2xl font-semibold text-white">Lagos</h2>
+      </div>
+
+      <p
+        id="temperature"
+        class="text-5xl font-bold text-yellow-300 drop-shadow-md mb-2"
+      >
+        °C
+      </p>
+      <p id="description" class="capitalize text-blue-100 text-lg">Windy</p>
+    </div>
+
+    <!-- Extra Weather Info -->
+    <div
+      class="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-12 text-white text-sm font-medium"
+    >
+      <div class="flex items-center gap-2">
+        <div
+          class="h-8 w-8 flex items-center justify-center rounded-lg bg-blue-900"
+        >
+          <img
+            src="assets/icons/temperature-high-svgrepo-com.svg"
+            alt=""
+            class="h-4 w-4"
+          />
+        </div>
+        <p>Temp:</p>
+      </div>
+      <div class="flex items-center gap-2">
+        <div
+          class="h-8 w-8 flex items-center justify-center rounded-lg bg-blue-900"
+        >
+          <img
+            src="assets/icons/temperature-feels-like.svg"
+            alt=""
+            class="h-4 w-4"
+          />
+        </div>
+        <p>Feels like:</p>
+      </div>
+      <div class="flex items-center gap-2">
+        <div
+          class="h-8 w-8 flex items-center justify-center rounded-lg bg-blue-900"
+        >
+          <img
+            src="assets/icons/dew-point-filled-svgrepo-com.svg"
+            alt=""
+            class="h-4 w-4"
+          />
+        </div>
+        <p>Humidity:</p>
+      </div>
+      <div class="flex items-center gap-2">
+        <div
+          class="h-8 w-8 flex items-center justify-center rounded-lg bg-blue-900"
+        >
+          <img src="assets/icons/wind-svgrepo-com.svg" alt="" class="h-4 w-4" />
+        </div>
+        <p>Wind Speed:</p>
+      </div>
+      <div class="flex items-center gap-2">
+        <div
+          class="h-8 w-8 flex items-center justify-center rounded-lg bg-blue-900"
+        >
+          <img src="assets/icons/pressure.svg" alt="" class="h-4 w-4" />
+        </div>
+        <p>Pressure:</p>
+      </div>
+      <div class="flex items-center gap-2">
+        <div
+          class="h-8 w-8 flex items-center justify-center rounded-lg bg-blue-900"
+        >
+          <img src="assets/icons/notes.svg" alt="" class="h-4 w-4" />
+        </div>
+        <p>Description:</p>
+      </div>
+    </div>
+
+    <!-- Forecast -->
+    <div id="forecastBox">
+      <h3 class="font-semibold text-white mb-6 text-xl text-center">
+        8-Day Forecast
+      </h3>
+      <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4">
+        <div
+          class="p-4 rounded-2xl bg-white/30 backdrop-blur-lg shadow-lg text-white text-center"
+        >
+          <p class="font-semibold">Day 1</p>
+          <p class="text-sm">°C</p>
+        </div>
+        <div
+          class="p-4 rounded-2xl bg-white/30 backdrop-blur-lg shadow-lg text-white text-center"
+        >
+          <p class="font-semibold">Day 2</p>
+          <p class="text-sm">°C</p>
+        </div>
+        <div
+          class="p-4 rounded-2xl bg-white/30 backdrop-blur-lg shadow-lg text-white text-center"
+        >
+          <p class="font-semibold">Day 3</p>
+          <p class="text-sm">°C</p>
+        </div>
+        <div
+          class="p-4 rounded-2xl bg-white/30 backdrop-blur-lg shadow-lg text-white text-center"
+        >
+          <p class="font-semibold">Day 4</p>
+          <p class="text-sm">°C</p>
+        </div>
+        <div
+          class="p-4 rounded-2xl bg-white/30 backdrop-blur-lg shadow-lg text-white text-center"
+        >
+          <p class="font-semibold">Day 5</p>
+          <p class="text-sm">°C</p>
+        </div>
+        <div
+          class="p-4 rounded-2xl bg-white/30 backdrop-blur-lg shadow-lg text-white text-center"
+        >
+          <p class="font-semibold">Day 6</p>
+          <p class="text-sm">°C</p>
+        </div>
+        <div
+          class="p-4 rounded-2xl bg-white/30 backdrop-blur-lg shadow-lg text-white text-center"
+        >
+          <p class="font-semibold">Day 7</p>
+          <p class="text-sm">°C</p>
+        </div>
+        <div
+          class="p-4 rounded-2xl bg-white/30 backdrop-blur-lg shadow-lg text-white text-center"
+        >
+          <p class="font-semibold">Day 8</p>
+          <p class="text-sm">°C</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
