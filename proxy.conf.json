@@ -1,0 +1,11 @@
+{
+  "/api": {
+    "target": "https://weather-api-19wq.onrender.com",
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": {
+      "^/api": ""
+    }
+  }
+}
