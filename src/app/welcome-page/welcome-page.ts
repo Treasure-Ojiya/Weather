@@ -9,5 +9,5 @@ import { RouterLink, RouterOutlet } from '@angular/router';
   styleUrl: './welcome-page.css',
 })
 export class WelcomePage {
-  protected readonly title = signal('Yue');
+  protected readonly title = signal('Weather');
 }
