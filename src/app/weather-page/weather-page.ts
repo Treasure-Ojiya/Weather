@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject, ChangeDetectorRef } from '@angular/core'; // Add ChangeDetectorRef
 import { FormsModule } from '@angular/forms';
 import { WeatherService } from '../service/weather-services';
 import { WeatherResponse } from '../model/weather-model';
@@ -16,48 +16,44 @@ export class WeatherPage implements OnInit {
   backgroundSize = 'cover';
   backgroundPosition = 'center';
 
-  // State
   weatherData: WeatherResponse | null = null;
   loading = false;
   errorMessage = '';
 
-  // Default city (so something loads on init)
-  city: string = 'Lagos';
+  // city: string = 'Lagos';
 
-  // Inject service
   private weatherService = inject(WeatherService);
+  private cdr = inject(ChangeDetectorRef);
 
   ngOnInit(): void {
-    this.fetchWeather(this.city); // load default city
+    this.fetchWeather('Lagos');
   }
 
-  // Search triggered from button
-  onSearch(): void {
-    if (!this.city || this.city.trim() === '') {
+  onSearch(city: string): void {
+    if (!city || city.trim() === '') {
       this.errorMessage = 'Please enter a city name';
       return;
     }
-
-    this.fetchWeather(this.city);
+    this.fetchWeather(city.trim());
   }
 
   fetchWeather(city: string): void {
-    this.loading = true;
+    this.weatherData = null;
     this.errorMessage = '';
-
-    // timer to auto-hide loader
-    setTimeout(() => {
-      this.loading = false;
-    }, 100);
+    this.loading = true;
 
     this.weatherService.getWeather(city).subscribe({
       next: (data) => {
         this.weatherData = data;
-        this.loading = false; // just in case it already finished
-      },
-      error: () => {
-        this.errorMessage = 'Could not fetch weather data. Try again.';
         this.loading = false;
+        this.cdr.detectChanges();
+      },
+      error: (error) => {
+        console.error('Weather API error:', error);
+        this.errorMessage = 'Could not fetch weather data. Please try again.';
+        this.loading = false;
+        this.weatherData = null;
+        this.cdr.detectChanges();
       },
     });
   }
